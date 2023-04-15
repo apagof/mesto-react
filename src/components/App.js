@@ -1,39 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Header } from "./Header";
+import { Main } from "./Main.js";
+import { Footer } from "./Footer.js";
+
 
 function App() {
+  const [isEditPopupProfile, setEditPopupProfileOpen] = React.useState(false);
+  const [isAddPlacePopupOpen, setAddPlacePopupOpen] = React.useState(false);
+  const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = React.useState(false);
+  const [isImagePopupOpen, setImagePopupOpen] = React.useState(false);
+  const [selectedCard, setSelectedCard] = React.useState({});
+
+  function handleEditAvatarClick() {
+    setEditAvatarPopupOpen(true);
+  }
+
+  function handleEditProfileClick() {
+    setEditPopupProfileOpen(true);
+  }
+
+  function handleAddPlaceClick() {
+    setAddPlacePopupOpen(true);
+  }
+
+  function handleCardClick(card) {
+    setSelectedCard(card);
+    setImagePopupOpen(true);
+  }
+
+  function closeAllPopups() {
+    setEditAvatarPopupOpen(false);
+    setEditPopupProfileOpen(false);
+    setAddPlacePopupOpen(false);
+    setImagePopupOpen(false);
+  }
+
   return (
-<body className="page">
-  <header className="header">
-    <img className="header__logo" alt="Логотип сайта"/>
-  </header>
-  <main className="content">
-    <section className="profile">
-      <div className="profile__container">
-        <div className = "profile__avatar-wrap">
-          <button className = "profile__avatar-button">
-        <img src="<%=require('./images/Cousteau.jpg')%>" className="profile__avatar" alt="аватар"/>
-      
-        </button>
-      </div>
-        <div className="profile__info">
-          <div className="profile__wrap">
-            <h1 className="profile__name">Жак-Ив Кусто</h1>
-            <button type="button" className="profile__edit-button" title="Изменить профиль" aria-label="Изменить"></button>
-          </div>
-          <p className="profile__profession">Исследователь океана</p>
-        </div>
-      </div>
-      <button type="button" className="profile__add-button" title="Добавить фото" aria-label="Добавить"></button>
-    </section>
-    <section className="photos">
-        <ul className="grid-photos">
-        </ul>
-    </section>
-  </main>
-    <footer className="footer">
-      <p className="footer__copyright">© 2022 Mesto Russia</p>
-    </footer>
+<div className="page">
+ <Header />
+ <Main 
+  onEditAvatar={handleEditAvatarClick}
+  onEditProfile={handleEditProfileClick}
+  onAddPlace={handleAddPlaceClick}
+  onCardClick={handleCardClick}
+ />
+   <Footer />
      <div className="popup popup_type_edit">
       <div className="popup__container">
       <button className="popup__button-close" type="button" title="Закрыть окно" aria-label="Закрыть"></button>
@@ -142,7 +153,7 @@ function App() {
         </div>
         </li>
     </template>
-</body>
+</div>
 
   );
 }
