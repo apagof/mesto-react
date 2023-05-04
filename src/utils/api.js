@@ -58,13 +58,13 @@ export default class Api {
   }
 
   // Редактировать данные пользователя
-  editUserInfo(data) {
+  editUserInfo(name, about) {
     return fetch(`https://mesto.nomoreparties.co/v1/cohort-62/users/me`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
-        name: `${data.name}`,
-        about: `${data.profession}`,
+        name: `${name}`,
+        about: `${about}`,
       }),
     }).then((response) => this._checkRequestResult(response));
   }
