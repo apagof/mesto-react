@@ -1,16 +1,23 @@
-
 import React, { useContext } from "react";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
-function Card({ link, alt, name, count, card, onCardClick, onCardLike, onCardDelete }) {
+function Card({
+  link,
+  alt,
+  name,
+  count,
+  card,
+  onCardClick,
+  onCardLike,
+  onCardDelete,
+}) {
   const currentUser = useContext(CurrentUserContext);
   const isOwn = card.owner._id === currentUser._id;
-  const isLiked = card.likes.some(i => i._id === currentUser._id);
+  const isLiked = card.likes.some((i) => i._id === currentUser._id);
 
-  const cardLikeButtonClassName = (
-    `grid-item__like ${isLiked && 'grid-item__like_active'}`
-  );
-
+  const cardLikeButtonClassName = `grid-item__like ${
+    isLiked && "grid-item__like_active"
+  }`;
 
   function handleClick() {
     onCardClick(card);
@@ -18,11 +25,11 @@ function Card({ link, alt, name, count, card, onCardClick, onCardLike, onCardDel
 
   function handleLikeClick() {
     onCardLike(card);
-  };
+  }
 
   function handleDeleteClick() {
-    onCardDelete(card)
-  };
+    onCardDelete(card);
+  }
 
   return (
     <li className="grid-item">
@@ -44,7 +51,9 @@ function Card({ link, alt, name, count, card, onCardClick, onCardLike, onCardDel
           <p className="grid-item__like-counter">{count}</p>
         </div>
       </div>
-      {isOwn && <button className='grid-item__delete-btn' onClick={handleDeleteClick} />}
+      {isOwn && (
+        <button className="grid-item__delete-btn" onClick={handleDeleteClick} />
+      )}
     </li>
   );
 }

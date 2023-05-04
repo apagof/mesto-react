@@ -1,10 +1,17 @@
-import React, { useContext} from "react";
+import React, { useContext } from "react";
 import { api } from "../utils/api.js";
 import { Card } from "../components/Card";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
-function Main({ onEditAvatar, onEditProfile, onAddPlace, onCardClick, onCardLike, cards, onCardDelete }) {
-
+function Main({
+  onEditAvatar,
+  onEditProfile,
+  onAddPlace,
+  onCardClick,
+  onCardLike,
+  cards,
+  onCardDelete,
+}) {
   const currentUser = useContext(CurrentUserContext);
 
   return (
@@ -13,7 +20,11 @@ function Main({ onEditAvatar, onEditProfile, onAddPlace, onCardClick, onCardLike
         <div className="profile__container">
           <div className="profile__avatar-wrap">
             <button className="profile__avatar-button" onClick={onEditAvatar}>
-              <img src={currentUser.avatar} className="profile__avatar" alt="аватар" />
+              <img
+                src={currentUser.avatar}
+                className="profile__avatar"
+                alt="аватар"
+              />
             </button>
           </div>
           <div className="profile__info">
@@ -40,7 +51,7 @@ function Main({ onEditAvatar, onEditProfile, onAddPlace, onCardClick, onCardLike
       </section>
       <section className="photos">
         <ul className="grid-photos">
-        {cards.map((card) => (
+          {cards.map((card) => (
             <Card
               key={card._id}
               name={card.name}

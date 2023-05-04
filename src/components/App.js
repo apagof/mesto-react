@@ -10,8 +10,7 @@ import EditAvatarPopup from "./EditAvatarPopup";
 import AddPlacePopup from "./AddPlacePopup";
 
 function App() {
-  const [isEditPopupProfileOpen, setEditPopupProfileOpen] =
-    useState(false);
+  const [isEditPopupProfileOpen, setEditPopupProfileOpen] = useState(false);
   const [isAddPlacePopupOpen, setAddPlacePopupOpen] = useState(false);
   const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = useState(false);
   const [isImagePopupOpen, setImagePopupOpen] = useState(false);
@@ -47,13 +46,11 @@ function App() {
     getCardsApi();
   }, []);
 
-
   function handleCardLike(card) {
     const isLiked = card.likes.some((i) => i._id === currentUser._id);
 
     isLiked
-      ?
-       api
+      ? api
           .unlikeCard(card._id, !isLiked)
           .then((newCard) => {
             setCards((state) =>
@@ -161,20 +158,20 @@ function App() {
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
-    <div className="page">
-      <Header />
-      <Main
-        onEditAvatar={handleEditAvatarClick}
-        onEditProfile={handleEditProfileClick}
-        onAddPlace={handleAddPlaceClick}
-        onCardClick={handleCardClick}
-        onCardLike={handleCardLike}
-        onCardDelete={handleCardDelete}
-        cards={cards}
-      />
-      <Footer />
-  
-      <EditProfilePopup
+      <div className="page">
+        <Header />
+        <Main
+          onEditAvatar={handleEditAvatarClick}
+          onEditProfile={handleEditProfileClick}
+          onAddPlace={handleAddPlaceClick}
+          onCardClick={handleCardClick}
+          onCardLike={handleCardLike}
+          onCardDelete={handleCardDelete}
+          cards={cards}
+        />
+        <Footer />
+
+        <EditProfilePopup
           isOpen={isEditPopupProfileOpen}
           onClose={closeAllPopups}
           onUpdateUser={handleUpdateUser}
@@ -194,12 +191,12 @@ function App() {
           onAddCard={handleAddCardSubmit}
           isLoading={isLoading}
         />
-      <ImagePopup
-        card={selectedCard}
-        isOpen={isImagePopupOpen}
-        onClose={closeAllPopups}
-      ></ImagePopup>
-    </div>
+        <ImagePopup
+          card={selectedCard}
+          isOpen={isImagePopupOpen}
+          onClose={closeAllPopups}
+        ></ImagePopup>
+      </div>
     </CurrentUserContext.Provider>
   );
 }
