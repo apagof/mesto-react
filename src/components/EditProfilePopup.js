@@ -57,7 +57,7 @@ export default function EditProfilePopup({isOpen, onClose, onUpdateUser, isLoadi
       noValidate
       id="popup__prof"
       onChange={handleChange}
-      value={values.profession} 
+      value={values.profession}  
     />
     <span className="popup__input-error popup__prof-error"></span>
   </PopupWithForm>
