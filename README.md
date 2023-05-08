@@ -1,4 +1,4 @@
-Спринт 10: mesto-react
+Спринт 11: mesto-react
 Используемые технологии:
 HTML 5
 CSS 3
