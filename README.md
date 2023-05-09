@@ -1,12 +1,18 @@
-Спринт 11: mesto-react
-Используемые технологии:
-HTML 5
-CSS 3
-JavaScript
-Flexbox
-Grid Layout
-Media
-БЭМ nested
-WebPack
-ES6 Classes
-React
+Какие технологии используются?
+HTML5;
+CSS3;
+JavaScript ES6;
+React;
+Flexbox-верстка;
+Grid-верстка;
+Анимация посредством CSS;
+БЭМ-методология;
+Адаптивная верстка под различные устройства;
+Figma;
+Git.
+
+
+Запуск проекта:
+В терминале скачать модули - npm i
+Запустить дев версию с локальным сервером - npm start
+Сделать продакшн билд - npm run build
