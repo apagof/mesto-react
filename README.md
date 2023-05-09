@@ -21,3 +21,5 @@
 <li>Запустить дев версию с локальным сервером - npm start</li>
 <li>Сделать продакшн билд - npm run build</li>
 </ul>
+
+<h3> Ссылка на проект: https://apagof.github.io/mesto-react/</h3>
