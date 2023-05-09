@@ -1,6 +1,7 @@
 Фронтенд проекта Mesto на React.
 
 Какие технологии используются?
+
 HTML5;
 CSS3;
 JavaScript ES6;
