@@ -2,8 +2,8 @@
 
 <h3>Какие технологии используются?</h3>
 <ul>
-    <li>HTML5;</li>
-    <li>CSS3;</li>   
+<li>HTML5;</li>
+<li>CSS3;</li>   
 <li>JavaScript ES6;</li>
 <li>React;</li>
 <li>Flexbox-верстка;</li>
